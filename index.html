@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome Books</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script type="module" src="./modules/index.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo"><a href="#">Awesome Books</a></div>
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <span id="list">List</span>
+                    </li>
+                    <li class="divider">
+                        <span id="add-new">Add New</span>
+                    </li>
+                    <li>
+                        <span id="contact">Contact</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="container" id="date-section">
+        <p id="date-time"></p>
+    </section>
+    <section class="container" id="error-section">
+        <p id="error-message">NO BOOKS FOUND! CREATE NEW BOOK</p>
+    </section>
+    <section class="container" id="all-books-section">
+        <h1>All Awesome books</h1>
+        <table>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </section>
+    <section class="container" id="add-books-section">
+        <h1>Add a new book</h1>
+        <form id="book-form">
+            <div>
+                <input id="title" type="text" placeholder="Title" required />
+            </div>
+            <div>
+                <input id="author" type="text" placeholder="Author" required />
+            </div>
+            <div class="form-submit">
+                <button type="submit" id="add">Add</button>
+            </div>
+        </form>
+    </section>
+    <section class="container" id="contact-section">
+        <h1>Contact information</h1>
+        <div class="content">
+            <p>
+                Do you have any question or do you want to say "Hello"? <br />
+                You can reach out to us
+            </p>
+            <ul>
+                <li>our email: mail@mail.com</li>
+                <li>our phone number:055464534343</li>
+                <li>our address: Streetname 22 834 City, Country</li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright &copy;awesomebooks 2023</p>
+    </footer>
+</body>
+
+</html>
