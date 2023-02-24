@@ -1,4 +1,4 @@
-import book from './Book.js';
+import Book from './Book.js';
 import { DateTime } from './luxon/src/luxon.js';
 
 const dateSection = document.getElementById('date-time');
@@ -16,6 +16,8 @@ const addBookButton = document.getElementById('add');
 const bookForm = document.getElementById('book-form');
 
 setInterval(() => { dateSection.innerText = DateTime.now().toISO(); }, 1000);
+
+const book = new Book();
 
 const createTableRow = (id, title, author) => {
   const tableRow = document.createElement('tr');
@@ -41,6 +43,9 @@ const hideAllContent = () => {
   listLink.style.color = 'black';
   newLink.style.color = 'black';
   contactLink.style.color = 'black';
+  listLink.style.fontWeight = 'normal';
+  newLink.style.fontWeight = 'normal';
+  contactLink.style.fontWeight = 'normal';
 };
 
 const showList = () => {
@@ -55,8 +60,9 @@ const showList = () => {
   } else {
     hideAllContent();
     errorSection.style.display = 'block';
-    addBooksSection.style.display = 'block';
   }
+  listLink.style.color = 'blue';
+  listLink.style.fontWeight = 'bold';
 };
 
 const populateView = () => {
@@ -71,42 +77,21 @@ listLink.addEventListener('click', () => {
   hideAllContent();
   populateView();
   listLink.style.color = 'blue';
-});
-
-listLink.addEventListener('mouseover', () => {
-  listLink.style.color = 'blue';
-});
-
-listLink.addEventListener('mouseleave', () => {
-  listLink.style.color = 'black';
+  listLink.style.fontWeight = 'bold';
 });
 
 newLink.addEventListener('click', () => {
   hideAllContent();
   addBooksSection.style.display = 'block';
   newLink.style.color = 'blue';
-});
-
-newLink.addEventListener('mouseover', () => {
-  newLink.style.color = 'blue';
-});
-
-newLink.addEventListener('mouseleave', () => {
-  newLink.style.color = 'black';
+  newLink.style.fontWeight = 'bold';
 });
 
 contactLink.addEventListener('click', () => {
   hideAllContent();
   contactSection.style.display = 'block';
   contactLink.style.color = 'blue';
-});
-
-contactLink.addEventListener('mouseover', () => {
-  contactLink.style.color = 'blue';
-});
-
-contactLink.addEventListener('mouseleave', () => {
-  contactLink.style.color = 'black';
+  contactLink.style.fontWeight = 'bold';
 });
 
 addBookButton.addEventListener('click', (e) => {

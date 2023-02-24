@@ -1,14 +1,24 @@
 class Book {
   constructor() {
-    this.listOfBooks = JSON.parse(localStorage.getItem('data')) || [];
+    const storedData = JSON.parse(localStorage.getItem('awesome-books-es6'));
+    if (storedData && storedData.length) {
+      if (['id', 'author', 'title'].every((it) => Object.keys(storedData[0]).includes(it))) {
+        this.listOfBooks = storedData;
+      } else {
+        localStorage.clear();
+        this.listOfBooks = [];
+      }
+    } else {
+      this.listOfBooks = [];
+    }
   }
 
   updateList() {
-    this.listOfBooks = JSON.parse(localStorage.getItem('data'));
+    this.listOfBooks = JSON.parse(localStorage.getItem('awesome-books-es6'));
   }
 
   updateStorage(items) {
-    localStorage.setItem('data', JSON.stringify(items));
+    localStorage.setItem('awesome-books-es6', JSON.stringify(items));
     this.updateList();
   }
 
@@ -31,6 +41,4 @@ class Book {
     return this.listOfBooks;
   }
 }
-
-const book = new Book();
-export default book;
+export default Book;
